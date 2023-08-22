@@ -1155,26 +1155,26 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 4700252: function() {
+ 4700332: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 4700307: function($0) {
+ 4700387: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4700355: function($0) {
+ 4700435: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4700403: function() {
+ 4700483: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 4700458: function() {
+ 4700538: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 4700519: function() {
+ 4700599: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  }
 };
@@ -1503,6 +1503,11 @@ function _JS_DOM_UnityCanvasSelector() {
   _JS_DOM_UnityCanvasSelector.ptr = stringToNewUTF8(canvasSelector);
  }
  return _JS_DOM_UnityCanvasSelector.ptr;
+}
+
+function _JS_Eval_OpenURL(ptr) {
+ var str = UTF8ToString(ptr);
+ window.open(str, "_blank", "");
 }
 
 var fs = {
@@ -13732,6 +13737,7 @@ var asmLibraryArg = {
  "JS_Cursor_SetShow": _JS_Cursor_SetShow,
  "JS_DOM_MapViewportCoordinateToElementLocalCoordinate": _JS_DOM_MapViewportCoordinateToElementLocalCoordinate,
  "JS_DOM_UnityCanvasSelector": _JS_DOM_UnityCanvasSelector,
+ "JS_Eval_OpenURL": _JS_Eval_OpenURL,
  "JS_FileSystem_Initialize": _JS_FileSystem_Initialize,
  "JS_FileSystem_Sync": _JS_FileSystem_Sync,
  "JS_Focus_Window": _JS_Focus_Window,
