@@ -133,13 +133,14 @@
         }
 
         iframe.addEventListener('load', function() {
-          const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
-          
-            if (iframe.contentWindow.location.href === targetURL) {
-            iframe.src = '';
-            overlay.style.display = 'none';
-            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
-          }
+            //const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
+
+            //if (iframe.contentWindow.location.href == targetURL) {
+            //    iframe.src = '';
+            //    overlay.style.display = 'none';
+            //    unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            //}
+            alert(iframe.contentWindow.location.href);
         });
     </script>
   </body>
