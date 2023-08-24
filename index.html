@@ -132,7 +132,11 @@
             overlay.style.display = 'flex';
         }
 
-        iframe.addEventListener('load', function() {
+        iframe.addEventListener('load', function () {
+            iframe.src = '';
+            overlay.style.display = 'none';
+            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            /*
             const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
 
             if (iframe.contentWindow.location.href == targetURL) {
@@ -140,6 +144,7 @@
                 overlay.style.display = 'none';
                 unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
             }
+            */
         });
     </script>
   </body>
