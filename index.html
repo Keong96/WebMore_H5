@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -53,11 +53,10 @@
       </div>
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
-      <div id="overlay">
-        <div id="iframeContainer">
-            <button id="closeButton" onclick="closeIframePopup()">Close</button>
-            <iframe src="" frameborder="0"></iframe>
-        </div>
+    <div id="overlay">
+      <div id="iframeContainer">
+          <iframe src="" frameborder="0"></iframe>
+      </div>
     </div>
     <script>
       const hideFullScreenButton = "";
@@ -123,30 +122,25 @@
           alert(message);
         });
       };
-        document.body.appendChild(script);
+      document.body.appendChild(script);
+
+      const overlay = document.getElementById('overlay');
+        const iframe = document.querySelector('#iframeContainer iframe');
 
         function openIframePopup(url) {
-            const overlay = document.getElementById('overlay');
-            const iframe = document.querySelector('#iframeContainer iframe');
-
             iframe.src = url;
             overlay.style.display = 'flex';
         }
 
-        function closeIframePopup() {
-            const overlay = document.getElementById('overlay');
+        iframe.addEventListener('load', function() {
+          const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
+          
+          if (myIframe.contentWindow.location.href === targetURL) {
+            iframe.src = '';
             overlay.style.display = 'none';
-        }
-
-        function a()
-        {
-          alert("a");
-        }
-
-        function b()
-        {
-          alert("b");
-        }
+            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+          }
+        });
     </script>
   </body>
 </html>
