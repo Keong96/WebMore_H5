@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -135,7 +135,7 @@
         iframe.addEventListener('load', function() {
           const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
           
-          if (myIframe.contentWindow.location.href === targetURL) {
+            if (iframe.contentWindow.location.href === targetURL) {
             iframe.src = '';
             overlay.style.display = 'none';
             unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
