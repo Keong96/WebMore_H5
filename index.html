@@ -55,7 +55,7 @@
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <div id="overlay">
       <div id="iframeContainer">
-          <iframe src="" frameborder="0"></iframe>
+          <iframe src="" frameborder="0" sandbox="allow-same-origin"></iframe>
       </div>
     </div>
     <script>
@@ -135,7 +135,7 @@
         iframe.addEventListener('load', function() {
             const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
 
-            if (window.frames[0].location.href == targetURL) {
+            if (iframe.contentWindow.location.href == targetURL) {
                 iframe.src = '';
                 overlay.style.display = 'none';
                 unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
