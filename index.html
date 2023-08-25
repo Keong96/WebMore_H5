@@ -55,7 +55,7 @@
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <div id="overlay">
       <div id="iframeContainer">
-          <iframe src="" frameborder="0" sandbox="allow-same-origin"></iframe>
+          <iframe src="" frameborder="0"></iframe>
       </div>
     </div>
     <script>
@@ -100,7 +100,7 @@
         config.devicePixelRatio = 1;
       }
       loadingCover.style.display = "";
-      var gameInstance;
+
       const script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -109,7 +109,6 @@
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
-            gameInstance = unityInstance
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
@@ -133,12 +132,14 @@
             overlay.style.display = 'flex';
         }
 
-        iframe.addEventListener('load', function () {
-            if (iframe.src == 'https://s2.bnx100.net/back') {
-                iframe.src = '';
-                overlay.style.display = 'none';
-                gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-            }
+        iframe.addEventListener('load', function() {
+          const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
+          
+            if (iframe.contentWindow.location.href === targetURL) {
+            iframe.src = '';
+            overlay.style.display = 'none';
+            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+          }
         });
     </script>
   </body>
