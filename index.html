@@ -138,6 +138,8 @@
 
         iframe.addEventListener('load', function () {
 
+            console.log('timesRefreshed = ' + timesRefreshed);
+
             if (timesRefreshed == 1) {
                 iframe.src = '';
                 overlay.style.display = 'none';
