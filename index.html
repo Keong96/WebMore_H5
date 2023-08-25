@@ -129,19 +129,20 @@
 
         const overlay = document.getElementById('overlay');
         const iframe = document.querySelector('#iframeContainer iframe');
+        var timesRefreshed = 0;
 
         function openIframePopup(url) {
             iframe.src = url;
             overlay.style.display = 'flex';
 
             iframe.addEventListener('load', function () {
-                //const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
-
-                //if (iframe.contentWindow.location.href === targetURL) {
+                timesRefreshed++;
+                if (timesRefreshed == 1) {
                     iframe.src = '';
                     overlay.style.display = 'none';
                     gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-                //}
+                    timesRefreshed = 0;
+                }
             });
         }
 
