@@ -134,22 +134,20 @@
         function openIframePopup(url) {
             iframe.src = url;
             overlay.style.display = 'flex';
-
-            iframe.addEventListener('load', function () {
-
-                console.log("timesRefreshed = " + timesRefreshed);
-
-                if (timesRefreshed == 1) {
-                    iframe.src = '';
-                    overlay.style.display = 'none';
-                    gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-                    timesRefreshed = 0;
-                }
-                else {
-                    timesRefreshed++;
-                }
-            });
         }
+
+        iframe.addEventListener('load', function () {
+
+            if (timesRefreshed == 1) {
+                iframe.src = '';
+                overlay.style.display = 'none';
+                gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
+                timesRefreshed = 0;
+            }
+            else {
+                timesRefreshed++;
+            }
+        });
 
     </script>
   </body>
