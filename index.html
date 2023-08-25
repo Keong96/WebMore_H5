@@ -59,6 +59,8 @@
       </div>
     </div>
     <script>
+      var gameInstance;
+
       const hideFullScreenButton = "";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/HTML5.loader.js";
@@ -109,6 +111,7 @@
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
+            gameInstance = unityInstance;
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
@@ -124,23 +127,24 @@
       };
       document.body.appendChild(script);
 
-      const overlay = document.getElementById('overlay');
+        const overlay = document.getElementById('overlay');
         const iframe = document.querySelector('#iframeContainer iframe');
 
         function openIframePopup(url) {
             iframe.src = url;
             overlay.style.display = 'flex';
+
+            iframe.addEventListener('load', function () {
+                const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
+
+                if (iframe.contentWindow.location.href === targetURL) {
+                    iframe.src = '';
+                    overlay.style.display = 'none';
+                    unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+                }
+            });
         }
 
-        iframe.addEventListener('load', function() {
-          const targetURL = 'https://s2.bnx100.net/back'; // Define the URL to match
-          
-            if (iframe.contentWindow.location.href === targetURL) {
-            iframe.src = '';
-            overlay.style.display = 'none';
-            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
-          }
-        });
     </script>
   </body>
 </html>
