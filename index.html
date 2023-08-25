@@ -140,7 +140,7 @@
                 //if (iframe.contentWindow.location.href === targetURL) {
                     iframe.src = '';
                     overlay.style.display = 'none';
-                    unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+                    gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
                 //}
             });
         }
