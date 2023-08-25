@@ -129,29 +129,26 @@
 
         const overlay = document.getElementById('overlay');
         const iframe = document.querySelector('#iframeContainer iframe');
-        var timesRefreshed = 0;
-
-        function openIframePopup(url) {
-            iframe.src = url;
-            overlay.style.display = 'flex';
-        }
 
         iframe.addEventListener('load', function () {
+            if (overlay.style.display == 'flex')
+            {
+                overlay.style.display = 'none';
+                gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
 
-            console.log('timesRefreshed = ' + timesRefreshed);
-
-            timesRefreshed++;
-
-            //if (timesRefreshed == 1) {
-            //    iframe.src = '';
-            //    overlay.style.display = 'none';
-            //    gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-            //    timesRefreshed = 0;
-            //}
-            //else {
-            //    timesRefreshed++;
-            //}
+            }
+            else
+            {
+                overlay.style.display = 'flex';
+            }
         });
+
+        function openIframePopup(url)
+        {
+            iframe.src = url;
+        }
+
+        
 
     </script>
   </body>
