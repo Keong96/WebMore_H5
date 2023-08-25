@@ -140,15 +140,17 @@
 
             console.log('timesRefreshed = ' + timesRefreshed);
 
-            if (timesRefreshed == 1) {
-                iframe.src = '';
-                overlay.style.display = 'none';
-                gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-                timesRefreshed = 0;
-            }
-            else {
-                timesRefreshed++;
-            }
+            timesRefreshed++;
+
+            //if (timesRefreshed == 1) {
+            //    iframe.src = '';
+            //    overlay.style.display = 'none';
+            //    gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            //    timesRefreshed = 0;
+            //}
+            //else {
+            //    timesRefreshed++;
+            //}
         });
 
     </script>
