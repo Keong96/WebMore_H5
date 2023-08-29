@@ -59,8 +59,6 @@
       </div>
     </div>
     <script>
-      var gameInstance;
-
       const hideFullScreenButton = "";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/HTML5.loader.js";
@@ -112,7 +110,7 @@
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
             gameInstance = unityInstance;
-          loadingCover.style.display = "none";
+            loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {
               fullscreenButton.style.display = "";
@@ -131,25 +129,19 @@
         const iframe = document.querySelector('#iframeContainer iframe');
 
         iframe.addEventListener('load', function () {
-            if (overlay.style.display == 'flex')
-            {
+            if (overlay.style.display == 'flex') {
                 overlay.style.display = 'none';
                 gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
 
             }
-            else
-            {
+            else {
                 overlay.style.display = 'flex';
             }
         });
 
-        function openIframePopup(url)
-        {
+        function openIframePopup(url) {
             iframe.src = url;
         }
-
-        
-
     </script>
   </body>
 </html>

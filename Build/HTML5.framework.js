@@ -1155,26 +1155,26 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 4700988: function() {
+ 4702316: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 4701043: function($0) {
+ 4702371: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4701091: function($0) {
+ 4702419: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4701139: function() {
+ 4702467: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 4701194: function() {
+ 4702522: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 4701255: function() {
+ 4702583: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  }
 };
@@ -1512,6 +1512,11 @@ function _JS_Eval_EvalJS(ptr) {
  } catch (exception) {
   console.error(exception);
  }
+}
+
+function _JS_Eval_OpenURL(ptr) {
+ var str = UTF8ToString(ptr);
+ window.open(str, "_blank", "");
 }
 
 var fs = {
@@ -13772,6 +13777,7 @@ var asmLibraryArg = {
  "JS_DOM_MapViewportCoordinateToElementLocalCoordinate": _JS_DOM_MapViewportCoordinateToElementLocalCoordinate,
  "JS_DOM_UnityCanvasSelector": _JS_DOM_UnityCanvasSelector,
  "JS_Eval_EvalJS": _JS_Eval_EvalJS,
+ "JS_Eval_OpenURL": _JS_Eval_OpenURL,
  "JS_FileSystem_Initialize": _JS_FileSystem_Initialize,
  "JS_FileSystem_Sync": _JS_FileSystem_Sync,
  "JS_Focus_Window": _JS_Focus_Window,
@@ -14169,6 +14175,7 @@ var asmLibraryArg = {
  "invoke_iiiidii": invoke_iiiidii,
  "invoke_iiiiff": invoke_iiiiff,
  "invoke_iiiifii": invoke_iiiifii,
+ "invoke_iiiifiii": invoke_iiiifiii,
  "invoke_iiiii": invoke_iiiii,
  "invoke_iiiiifiiiii": invoke_iiiiifiiiii,
  "invoke_iiiiii": invoke_iiiiii,
@@ -16060,6 +16067,17 @@ function invoke_viiiiiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a
  var sp = stackSave();
  try {
   dynCall_viiiiiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13);
+ } catch (e) {
+  stackRestore(sp);
+  if (e !== e + 0 && e !== "longjmp") throw e;
+  _setThrew(1, 0);
+ }
+}
+
+function invoke_iiiifiii(index, a1, a2, a3, a4, a5, a6, a7) {
+ var sp = stackSave();
+ try {
+  return dynCall_iiiifiii(index, a1, a2, a3, a4, a5, a6, a7);
  } catch (e) {
   stackRestore(sp);
   if (e !== e + 0 && e !== "longjmp") throw e;
