@@ -40,8 +40,8 @@
     </style>
   </head>
   <body class="dark">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas"></canvas>
+    <div id="unity-container" style="position: absolute; width: 100%; height: 100%">
+      <canvas id="unity-canvas" width=2255 height=1080 style="width: 100%; height: 100%"></canvas>
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
@@ -59,7 +59,7 @@
       </div>
     </div>
     <script>
-      const hideFullScreenButton = "";
+      const hideFullScreenButton = "1";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/HTML5.loader.js";
       const config = {
