@@ -85,7 +85,7 @@
 
 <div id="loader">
     <div class="awtCanvas1" style="transform: scale(calc(0.13*var(--agwww)));">
-        <img src="gameLogo.png" class="gameLogo" style="display: block;">
+        <img src="gameLogo.png" class="gameLogo" style="display: none;">
         <div class="progressBar" style="display: block;">
             <div class="full"></div>
         </div>
@@ -309,11 +309,11 @@
             <img class="companyLogoImage" src="companyLogo.png">
         </a>
         <button title="Enter fullscreen" id="fullscreenButton" onclick="toggle_fullscreen()"
-                style="width: calc(var(--agw)*8); height: calc(var(--agw)*8); position: absolute; bottom: 0px; right: 0px; margin: 1.5vw; font-size: 16px; display: block; transition: opacity 0.4s ease 0s; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; padding: 0px; border: 0px none; cursor: pointer; appearance: button; text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none; text-align: center; align-items: flex-start; box-sizing: border-box; pointer-events: all;">
+                style="width: calc(var(--agw)*8); height: calc(var(--agw)*8); position: absolute; bottom: 0px; right: 0px; margin: 1.5vw; font-size: 16px; display: none; transition: opacity 0.4s ease 0s; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; padding: 0px; border: 0px none; cursor: pointer; appearance: button; text-rendering: auto; letter-spacing: normal; word-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none; text-align: center; align-items: flex-start; box-sizing: border-box; pointer-events: all;">
             <img src="fullScreenButton.svg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;">
         </button>
     </div>
-    <div id="overlay">
+    <div id="overlay" style="display: none !important;">
         <div id="iframeContainer">
             <iframe src="" frameborder="0"></iframe>
         </div>
@@ -423,7 +423,7 @@
         if (overlay.style.display == 'flex') {
             overlay.style.display = 'none';
             gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
-
+            console.log("overlay.style.display = "+overlay.style.display)；
         }
         else {
             overlay.style.display = 'flex';
