@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 .awtCanvas1 {
 	display: block;
@@ -62,7 +62,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	position: fixed;
-	top: 200px;
+	top: 450px;
 	bottom: auto;
 	left: 5px;
 	right: 5px;
@@ -128,7 +128,7 @@
 	position: static;
 }
 
-.progressBar {background: #004c4c; display: block;border: #a1ffff;height: 20px;width: 400px;margin-top: 58px;border-style: inset;border-width: 3px; position: absolute;left: 50%;top: 32%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);border-radius: 9px;}
+.progressBar {background: #004c4c; display: block;border: #a1ffff;height: 20px;width: 400px;margin-top: 58px;border-style: inset;border-width: 3px; position: absolute;left: 50%;top: 75%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);border-radius: 9px;}
 
 .progressBar .full {
 	transform-origin: top left;
