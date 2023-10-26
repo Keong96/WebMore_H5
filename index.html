@@ -420,12 +420,12 @@
     const iframe = document.querySelector('#iframeContainer iframe');
 
     iframe.addEventListener('load', function () {
-        if (overlay.style.display == 'flex') {
-            overlay.style.display = 'none';
+        if (overlay.style.display == 'flex !important') {
+            overlay.style.display = 'none !important';
             applicationInstance.SendMessage('LobbyManager', 'ResumeMusic');
         }
         else {
-            overlay.style.display = 'flex';
+            overlay.style.display = 'flex !important';
         }
     });
 
