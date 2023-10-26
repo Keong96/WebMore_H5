@@ -422,7 +422,7 @@
     iframe.addEventListener('load', function () {
         if (overlay.style.display == 'flex') {
             overlay.style.display = 'none';
-            gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
         }
         else {
             overlay.style.display = 'flex';
