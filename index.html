@@ -329,7 +329,6 @@
 
     var applicationInstance;
     var unityInstantiated = false;
-
     var counter1 = 0;
 
     function instantiateApplication()
@@ -422,7 +421,7 @@
     iframe.addEventListener('load', function () {
         if (overlay.style.display == 'flex') {
             overlay.style.display = 'none';
-            unityInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            applicationInstance.SendMessage('LobbyManager', 'ResumeMusic');
         }
         else {
             overlay.style.display = 'flex';
