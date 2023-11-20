@@ -8,7 +8,7 @@
 
     <!--s11-->
     
-    <title>WebMore</title>
+    <title>Duofu88</title>
     
     <!--s12-->
 
@@ -40,6 +40,7 @@
           width: 100%;
           height: 100%;
           background-color: rgba(0, 0, 0, 0.7);
+          display: none !important;
           z-index: 9999;
       }
 
@@ -72,14 +73,15 @@
 </div>
 
 <div class="awtBackground" style="width: 100%; height: 100%;">
-    <div id="pb" class="vertical-centered-box">
+    <!-- <div id="pb" class="vertical-centered-box">
         <canvas class="pg-canvas" style="display: block;" width="606" height="606"></canvas>
         <canvas class="pg-canvas" width="1505" height="1178" style="display: block;"></canvas>
     </div>
     <div id="pf" class="vertical-centered-box">
         <canvas class="pg-canvas" style="display: block;" width="606" height="606"></canvas>
         <canvas class="pg-canvas" width="1505" height="1178" style="display: block;"></canvas>
-    </div>
+    </div> -->
+    <video src="background.mp4" muted autoplay loop></video>
 </div>
 
 <div id="loader">
@@ -312,20 +314,23 @@
             <img src="fullScreenButton.svg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;">
         </button>
     </div>
-</div>
-    
-<div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; opacity: 0.85; width: 100%; height: 100%; position: fixed; z-index: 2147483647; top: 0px; display: none;" id="WebGLMobileInputSystemUI">  <form style="position: absolute;top: 30%;display: flex;width: 100%;justify-content: center;z-index: 2147483647;opacity: 1;" id="form1">      <input type="text" id="inputField" style="display: block;font-size: 175%;" placeholder="enter here" size="35">    <input type="submit" value="DONE" style="display: block;margin-left: 0.4%;font-size: 175%;" id="doneButton"><input value="CANCEL" id="cancelButton" type="button" style="margin-left: 0.4%;display: block;font-size: 175%;" onclick="cancel();"></form></div>
-
-<div id="overlay" style="display: none;">
-    <div id="iframeContainer">
-        <iframe src="" frameborder="0"></iframe>
+    <div id="overlay">
+        <div id="iframeContainer">
+            <iframe src="" frameborder="0"></iframe>
+        </div>
     </div>
 </div>
+
+<div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; opacity: 0.85; width: 100%; height: 100%; position: fixed; z-index: 2147483647; top: 0px; display: none;" id="WebGLMobileInputSystemUI">  <form style="position: absolute;top: 30%;display: flex;width: 100%;justify-content: center;z-index: 2147483647;opacity: 1;" id="form1">      <input type="text" id="inputField" style="display: block;font-size: 175%;" placeholder="enter here" size="35">    <input type="submit" value="DONE" style="display: block;margin-left: 0.4%;font-size: 175%;" id="doneButton"><input value="CANCEL" id="cancelButton" type="button" style="margin-left: 0.4%;display: block;font-size: 175%;" onclick="cancel();"></form></div>
+
+
+
 
 <script>
 
     var applicationInstance;
     var unityInstantiated = false;
+
     var counter1 = 0;
 
     function instantiateApplication()
@@ -349,12 +354,12 @@
     var buildUrl = "Build";
     var loaderUrl = buildUrl + "/HTML5.loader.js";
     var config = {
-        dataUrl: buildUrl + "/HTML5.data",
-        frameworkUrl: buildUrl + "/HTML5.framework.js",
-        codeUrl: buildUrl + "/HTML5.wasm",
+        dataUrl: buildUrl + "/HTML5.data.br",
+        frameworkUrl: buildUrl + "/HTML5.framework.js.br",
+        codeUrl: buildUrl + "/HTML5.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "WebMore",
+        productName: "Duofu88",
         productVersion: "1.0",
     };
     //s32//
@@ -386,7 +391,7 @@
 
             loader.querySelector(".progressBar").style.display = "none";
             loader.querySelector(".progressText").style.display = "none";
-            loader.querySelector(".gameLogo").style.display = "none";
+            loader.querySelector(".gameLogo").style.display = "block";
             loader.querySelector(".awtCanvas1").style.backgroundColor = "transparent";
             loader.querySelector(".awtCanvas1").style.pointerEvents = "none";
             document.querySelector("#socialLinks_landscapeMode").style.display = "none";
@@ -418,7 +423,7 @@
     iframe.addEventListener('load', function () {
         if (overlay.style.display == 'flex') {
             overlay.style.display = 'none';
-            applicationInstance.SendMessage('LobbyManager', 'ResumeMusic');
+            gameInstance.SendMessage('LobbyManager', 'ResumeMusic');
         }
         else {
             overlay.style.display = 'flex';
@@ -430,6 +435,10 @@
     }
 
 </script>
+
+
 <script src="awt.js"></script>
+
 </body>
+
 </html>
