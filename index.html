@@ -461,6 +461,22 @@
         };
     }
 
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
+    function forceLandscape() {
+        if (isMobileDevice()) {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape');
+            } else if (screen.lockOrientation) {
+                screen.lockOrientation('landscape');
+            }
+        }
+    }
+
+    forceLandscape();
+
 </script>
 
 
