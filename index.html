@@ -389,12 +389,12 @@
     var script = document.createElement("script");
 
     window.addEventListener('DOMContentLoaded', function() {
-      if (window.innerWidth < window.innerHeight) {
+      if (!window.matchMedia("(orientation: landscape)").matches) {
         document.getElementById('rotateDevice').style.display = 'flex';
       }
 
       window.addEventListener('orientationchange', function() {
-        if (window.innerWidth > window.innerHeight) {
+        if (window.matchMedia("(orientation: landscape)").matches) {
           document.getElementById('rotateDevice').style.display = 'none';
         } else {
           document.getElementById('rotateDevice').style.display = 'flex';
