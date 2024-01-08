@@ -395,7 +395,7 @@
 
       window.addEventListener('orientationchange', function() {
 
-      alert('window.matchMedia("(orientation: landscape)").matches');
+      alert(window.matchMedia("(orientation: landscape)").matches);
 
         if (window.matchMedia("(orientation: landscape)").matches) {
           document.getElementById('rotateDevice').style.display = 'none';
