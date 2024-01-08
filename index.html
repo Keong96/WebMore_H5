@@ -388,21 +388,22 @@
 
     var script = document.createElement("script");
 
-    window.addEventListener('DOMContentLoaded', function() {
-      if (!window.matchMedia("(orientation: landscape)").matches) {
+    function checkOrientation() {
+      var isLandscape = window.matchMedia("(orientation: landscape)").matches;
+      var isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+      if (isLandscape && !isPortrait) {
+        document.getElementById('rotateDevice').style.display = 'none';
+      } else {
         document.getElementById('rotateDevice').style.display = 'flex';
       }
+    }
 
-      window.addEventListener('orientationchange', function() {
+    window.addEventListener('DOMContentLoaded', function() {
+      checkOrientation();
 
-      alert(window.matchMedia("(orientation: landscape)").matches);
-
-        if (window.matchMedia("(orientation: landscape)").matches) {
-          document.getElementById('rotateDevice').style.display = 'none';
-        } else {
-          document.getElementById('rotateDevice').style.display = 'flex';
-        }
-      });
+      window.matchMedia("(orientation: landscape)").addListener(checkOrientation);
+      window.matchMedia("(orientation: portrait)").addListener(checkOrientation);
     });
 
     script.src = loaderUrl;
