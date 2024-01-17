@@ -129,6 +129,7 @@
 }
 
 .progressBar {background: #4c3100; display: block;border: #ffd6a1;height: 20px;width: 400px;margin-top: 58px;border-style: inset;border-width: 3px; position: absolute;left: 50%;top: 75%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);border-radius: 9px;}
+
 .progressBar .full {
 	transform-origin: top left;
 	background-size: contain;

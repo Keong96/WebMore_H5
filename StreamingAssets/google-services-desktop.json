@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "156253239695",
+    "project_id": "duofu88-d97c6",
+    "storage_bucket": "duofu88-d97c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156253239695:android:304dba90315dcbdae2b3fa",
+        "android_client_info": {
+          "package_name": "com.DFSlot.Duofu88"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd6zhRwsgqACC3hC_cHgvU-_kfPIAW62k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
